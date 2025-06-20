@@ -13,3 +13,6 @@ export const WRITE_NOTE = 'WRITE_NORE'
 
 // create note
 export const CREATE_NOTE = 'CREATE_NOTE'
+
+// delete note
+export const DELETE_NOTE = 'DELETE_NOTE'

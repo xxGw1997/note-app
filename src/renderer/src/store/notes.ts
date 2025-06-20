@@ -61,13 +61,23 @@ export const useNotesStore = create<NotesState>((set, get) => ({
       }
     })
   },
-  removeNote: () =>
+  removeNote: async () => {
+    const notes = get().notes
+    const selectedNoteIndex = get().selectedNoteIndex
+    if (!notes || !isNumber(selectedNoteIndex)) return
+    const selectedNote = notes[selectedNoteIndex]
+    if (!selectedNote) return
+
+    // const ok = await window.context.deleteNote(selectedNote.title)
+    // if (!ok) return
+
     set(({ notes, selectedNoteIndex }) => {
       return {
         notes: notes.filter((_, i) => selectedNoteIndex !== i),
         selectedNoteIndex: null
       }
-    }),
+    })
+  },
   getNoteFromOs: async () => {
     const curNotes = get().notes
     if (curNotes && curNotes.length > 0) return
