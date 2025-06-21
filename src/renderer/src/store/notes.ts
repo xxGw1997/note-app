@@ -68,8 +68,8 @@ export const useNotesStore = create<NotesState>((set, get) => ({
     const selectedNote = notes[selectedNoteIndex]
     if (!selectedNote) return
 
-    // const ok = await window.context.deleteNote(selectedNote.title)
-    // if (!ok) return
+    const ok = await window.context.deleteNote(selectedNote.title)
+    if (!ok) return
 
     set(({ notes, selectedNoteIndex }) => {
       return {
