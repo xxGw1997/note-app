@@ -57,6 +57,9 @@
   * {
     @apply border-border;
   }
+  body {
+    @apply rounded-lg;
+  }
   html,
   body {
     @apply h-full select-none font-mono antialiased overflow-hidden bg-transparent !text-foreground;
